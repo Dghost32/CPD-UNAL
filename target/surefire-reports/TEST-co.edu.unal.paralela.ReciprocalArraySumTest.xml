@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.edu.unal.paralela.ReciprocalArraySumTest" time="24.779" tests="4" errors="0" skipped="0" failures="1">
+<testsuite name="co.edu.unal.paralela.ReciprocalArraySumTest" time="25.974" tests="4" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="21.0.5+11-Ubuntu-1ubuntu124.04"/>
@@ -56,14 +56,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase name="testParManyTaskTwoHundredMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="12.524">
-    <failure message="Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse  9.600000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 3.186047x veces" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse  9.600000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 3.186047x veces
+  <testcase name="testParManyTaskTwoHundredMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="13.234">
+    <failure message="Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse  9.600000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 2.820000x veces" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse  9.600000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 2.820000x veces
 	at junit.framework.Assert.fail(Assert.java:47)
 	at junit.framework.Assert.assertTrue(Assert.java:20)
 	at co.edu.unal.paralela.ReciprocalArraySumTest.testParManyTaskTwoHundredMillion(ReciprocalArraySumTest.java:149)
 </failure>
   </testcase>
-  <testcase name="testParSimpleTwoMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="0.12"/>
-  <testcase name="testParManyTaskTwoMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="0.117"/>
-  <testcase name="testParSimpleTwoHundredMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="12.018"/>
+  <testcase name="testParSimpleTwoMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="0.133"/>
+  <testcase name="testParManyTaskTwoMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="0.13"/>
+  <testcase name="testParSimpleTwoHundredMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="12.477"/>
 </testsuite>

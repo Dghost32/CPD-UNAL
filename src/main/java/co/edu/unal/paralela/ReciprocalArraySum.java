@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 /**
  * Clase que contiene los métodos para implementar la suma de los recíprocos de
@@ -137,9 +138,8 @@ public final class ReciprocalArraySum {
         protected void compute() {
             final int SEQUENTIAL_THRESHOLD = Math.max(10000, (endIndexExclusive - startIndexInclusive) / 2);
             if (endIndexExclusive - startIndexInclusive <= SEQUENTIAL_THRESHOLD) {
-                for (int i = startIndexInclusive; i < endIndexExclusive; i++) {
-                    value += 1 / input[i];
-                }
+                IntStream.range(startIndexInclusive, endIndexExclusive)
+                        .forEach(i -> value += 1 / input[i]);
             } else {
                 int mid = (startIndexInclusive + endIndexExclusive) / 2;
                 ReciprocalArraySumTask leftTask = new ReciprocalArraySumTask(startIndexInclusive, mid, input);
@@ -170,12 +170,12 @@ public final class ReciprocalArraySum {
 
         List<ReciprocalArraySumTask> tasks = new ArrayList<>(numTasks);
 
-        for (int i = 0; i < numTasks; i++) {
+        IntStream.range(0, numTasks).forEach(i -> {
             int start = getChunkStartInclusive(i, numTasks, input.length);
             int end = getChunkEndExclusive(i, numTasks, input.length);
             ReciprocalArraySumTask task = new ReciprocalArraySumTask(start, end, input);
             tasks.add(task);
-        }
+        });
 
         try (ForkJoinPool pool = ForkJoinPool.commonPool()) {
             tasks.forEach(ReciprocalArraySumTask::fork);
@@ -202,12 +202,12 @@ public final class ReciprocalArraySum {
 
         List<ReciprocalArraySumTask> tasks = new ArrayList<>(numTasks);
 
-        for (int i = 0; i < numTasks; i++) {
+        IntStream.range(0, numTasks).forEach(i -> {
             int start = getChunkStartInclusive(i, numTasks, input.length);
             int end = getChunkEndExclusive(i, numTasks, input.length);
             ReciprocalArraySumTask task = new ReciprocalArraySumTask(start, end, input);
             tasks.add(task);
-        }
+        });
         
         try (ForkJoinPool pool = ForkJoinPool.commonPool()) {
             tasks.forEach(ReciprocalArraySumTask::fork);
