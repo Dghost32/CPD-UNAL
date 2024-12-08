@@ -182,7 +182,7 @@ public final class ReciprocalArraySum {
             tasks.forEach(RecursiveAction::join);
         }
 
-        return tasks.parallelStream().reduce(0.0, (sum, task) -> sum + task.getValue(), Double::sum);
+        return tasks.stream().reduce(0.0, (sum, task) -> sum + task.getValue(), Double::sum);
     }
 
     /**
@@ -214,6 +214,6 @@ public final class ReciprocalArraySum {
             tasks.forEach(RecursiveAction::join);
         }
 
-        return tasks.parallelStream().reduce(0.0, (sum, task) -> sum + task.getValue(), Double::sum);
+        return tasks.stream().reduce(0.0, (sum, task) -> sum + task.getValue(), Double::sum);
     }
 }
