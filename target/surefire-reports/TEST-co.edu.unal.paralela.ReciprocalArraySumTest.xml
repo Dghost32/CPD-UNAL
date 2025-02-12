@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.edu.unal.paralela.ReciprocalArraySumTest" time="23.587" tests="4" errors="0" skipped="0" failures="1">
+<testsuite name="co.edu.unal.paralela.ReciprocalArraySumTest" time="20.772" tests="4" errors="1" skipped="0" failures="2">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="java.vm.version" value="21.0.5+11-Ubuntu-1ubuntu124.04"/>
+    <property name="java.vm.version" value="21.0.6+7-Ubuntu-124.04.1"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk-amd64/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/carlos/unal/202402/CPD/TALLERES/ejercicio_1"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/carlos/Unal/202402/CPD/CPD-UNAL"/>
     <property name="java.vm.vendor" value="Ubuntu"/>
     <property name="java.vendor.url" value="https://ubuntu.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -13,9 +13,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/carlos/unal/202402/CPD/TALLERES/ejercicio_1"/>
+    <property name="user.dir" value="/home/carlos/Unal/202402/CPD/CPD-UNAL"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
-    <property name="java.runtime.version" value="21.0.5+11-Ubuntu-1ubuntu124.04"/>
+    <property name="java.runtime.version" value="21.0.6+7-Ubuntu-124.04.1"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="/tmp"/>
     <property name="line.separator" value="&#10;"/>
@@ -31,7 +31,7 @@
     <property name="java.class.version" value="65.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="6.8.0-49-generic"/>
+    <property name="os.version" value="6.8.0-51-generic"/>
     <property name="library.jansi.path" value="/opt/apache-maven-3.9.9/lib/jansi-native"/>
     <property name="user.home" value="/home/carlos"/>
     <property name="user.timezone" value="America/Bogota"/>
@@ -46,24 +46,62 @@
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="java.version" value="21.0.5"/>
+    <property name="java.version" value="21.0.6"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.vendor" value="Ubuntu"/>
     <property name="maven.home" value="/opt/apache-maven-3.9.9"/>
     <property name="file.separator" value="/"/>
-    <property name="java.version.date" value="2024-10-15"/>
+    <property name="java.version.date" value="2025-01-21"/>
     <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
   </properties>
-  <testcase name="testParManyTaskTwoHundredMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="11.87">
-    <failure message="Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse  9.600000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 3.500000x veces" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse  9.600000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 3.500000x veces
+  <testcase name="testParManyTaskTwoHundredMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="3.408">
+    <error type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at java.base/java.util.concurrent.ForkJoinTask.getThrowableException(ForkJoinTask.java:542)
+	at java.base/java.util.concurrent.ForkJoinTask.reportException(ForkJoinTask.java:567)
+	at java.base/java.util.concurrent.ForkJoinTask.join(ForkJoinTask.java:653)
+	at java.base/java.util.concurrent.ForkJoinPool.invoke(ForkJoinPool.java:2822)
+	at co.edu.unal.paralela.ReciprocalArraySum.lambda$6(ReciprocalArraySum.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at co.edu.unal.paralela.ReciprocalArraySum.parManyTaskArraySum(ReciprocalArraySum.java:80)
+	at co.edu.unal.paralela.ReciprocalArraySumTest.parTestHelper(ReciprocalArraySumTest.java:69)
+	at co.edu.unal.paralela.ReciprocalArraySumTest.testParManyTaskTwoHundredMillion(ReciprocalArraySumTest.java:145)
+Caused by: java.lang.ArrayIndexOutOfBoundsException: Index -2144967253 out of bounds for length 200000000
+	at co.edu.unal.paralela.utils.ReciprocalArraySumTask.lambda$0(ReciprocalArraySumTask.java:29)
+	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
+	at java.base/java.util.stream.IntPipeline$Head.forEach(IntPipeline.java:617)
+	at co.edu.unal.paralela.utils.ReciprocalArraySumTask.compute(ReciprocalArraySumTask.java:29)
+	at java.base/java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:194)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.tryRemoveAndExec(ForkJoinPool.java:1351)
+	at java.base/java.util.concurrent.ForkJoinTask.awaitDone(ForkJoinTask.java:422)
+	at java.base/java.util.concurrent.ForkJoinTask.join(ForkJoinTask.java:651)
+	at co.edu.unal.paralela.utils.ReciprocalArraySumTask.compute(ReciprocalArraySumTask.java:36)
+	at java.base/java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:194)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+</error>
+  </testcase>
+  <testcase name="testParManyTaskTwoMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="2.754">
+    <failure message="Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse 7.200000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 0.048780x veces" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse 7.200000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 0.048780x veces
 	at junit.framework.Assert.fail(Assert.java:47)
 	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at co.edu.unal.paralela.ReciprocalArraySumTest.testParManyTaskTwoHundredMillion(ReciprocalArraySumTest.java:149)
+	at co.edu.unal.paralela.ReciprocalArraySumTest.testParManyTaskTwoMillion(ReciprocalArraySumTest.java:137)
 </failure>
   </testcase>
-  <testcase name="testParSimpleTwoMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="0.12"/>
-  <testcase name="testParManyTaskTwoMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="0.146"/>
-  <testcase name="testParSimpleTwoHundredMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="11.451"/>
+  <testcase name="testParSimpleTwoMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="0.201">
+    <failure message="Se esperaba que la implementación de dos tareas en paralelo pudiera ejecutarse  1.500000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 1.000000x veces" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Se esperaba que la implementación de dos tareas en paralelo pudiera ejecutarse  1.500000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 1.000000x veces
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at co.edu.unal.paralela.ReciprocalArraySumTest.testParSimpleTwoMillion(ReciprocalArraySumTest.java:114)
+</failure>
+  </testcase>
+  <testcase name="testParSimpleTwoHundredMillion" classname="co.edu.unal.paralela.ReciprocalArraySumTest" time="14.409"/>
 </testsuite>
