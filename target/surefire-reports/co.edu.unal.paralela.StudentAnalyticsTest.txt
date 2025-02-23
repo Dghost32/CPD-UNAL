@@ -1,9 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: co.edu.unal.paralela.StudentAnalyticsTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.752 sec <<< FAILURE! - in co.edu.unal.paralela.StudentAnalyticsTest
-testMostCommonFirstNameOfInactiveStudentsPerf(co.edu.unal.paralela.StudentAnalyticsTest)  Time elapsed: 0.946 sec  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected speedup to be at least 6.0 but was 1.2451253481894151
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.82 sec <<< FAILURE! - in co.edu.unal.paralela.StudentAnalyticsTest
+testMostCommonFirstNameOfInactiveStudentsPerf(co.edu.unal.paralela.StudentAnalyticsTest)  Time elapsed: 0.975 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: Expected speedup to be at least 6.0 but was 1.3157894736842106
 	at junit.framework.Assert.fail(Assert.java:47)
 	at junit.framework.Assert.assertTrue(Assert.java:20)
 	at co.edu.unal.paralela.StudentAnalyticsTest.testMostCommonFirstNameOfInactiveStudentsPerf(StudentAnalyticsTest.java:118)
