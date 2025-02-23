@@ -1,48 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: co.edu.unal.paralela.ReciprocalArraySumTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 20.789 sec <<< FAILURE! - in co.edu.unal.paralela.ReciprocalArraySumTest
-testParManyTaskTwoHundredMillion(co.edu.unal.paralela.ReciprocalArraySumTest)  Time elapsed: 3.408 sec  <<< ERROR!
-java.lang.ArrayIndexOutOfBoundsException
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at java.base/java.util.concurrent.ForkJoinTask.getThrowableException(ForkJoinTask.java:542)
-	at java.base/java.util.concurrent.ForkJoinTask.reportException(ForkJoinTask.java:567)
-	at java.base/java.util.concurrent.ForkJoinTask.join(ForkJoinTask.java:653)
-	at java.base/java.util.concurrent.ForkJoinPool.invoke(ForkJoinPool.java:2822)
-	at co.edu.unal.paralela.ReciprocalArraySum.lambda$6(ReciprocalArraySum.java:80)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at co.edu.unal.paralela.ReciprocalArraySum.parManyTaskArraySum(ReciprocalArraySum.java:80)
-	at co.edu.unal.paralela.ReciprocalArraySumTest.parTestHelper(ReciprocalArraySumTest.java:69)
-	at co.edu.unal.paralela.ReciprocalArraySumTest.testParManyTaskTwoHundredMillion(ReciprocalArraySumTest.java:145)
-Caused by: java.lang.ArrayIndexOutOfBoundsException: Index -2144967253 out of bounds for length 200000000
-	at co.edu.unal.paralela.utils.ReciprocalArraySumTask.lambda$0(ReciprocalArraySumTask.java:29)
-	at java.base/java.util.stream.Streams$RangeIntSpliterator.forEachRemaining(Streams.java:104)
-	at java.base/java.util.stream.IntPipeline$Head.forEach(IntPipeline.java:617)
-	at co.edu.unal.paralela.utils.ReciprocalArraySumTask.compute(ReciprocalArraySumTask.java:29)
-	at java.base/java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:194)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.tryRemoveAndExec(ForkJoinPool.java:1351)
-	at java.base/java.util.concurrent.ForkJoinTask.awaitDone(ForkJoinTask.java:422)
-	at java.base/java.util.concurrent.ForkJoinTask.join(ForkJoinTask.java:651)
-	at co.edu.unal.paralela.utils.ReciprocalArraySumTask.compute(ReciprocalArraySumTask.java:36)
-	at java.base/java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:194)
-	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
-	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
-	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
-	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
-	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
-
-testParManyTaskTwoMillion(co.edu.unal.paralela.ReciprocalArraySumTest)  Time elapsed: 2.754 sec  <<< FAILURE!
-junit.framework.AssertionFailedError: Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse 7.200000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 0.048780x veces
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 24.788 sec <<< FAILURE! - in co.edu.unal.paralela.ReciprocalArraySumTest
+testParManyTaskTwoHundredMillion(co.edu.unal.paralela.ReciprocalArraySumTest)  Time elapsed: 12.264 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: Se esperaba que la implmentación de muchas tareas en paralelo pudiera ejecutarse  9.600000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 3.190476x veces
 	at junit.framework.Assert.fail(Assert.java:47)
 	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at co.edu.unal.paralela.ReciprocalArraySumTest.testParManyTaskTwoMillion(ReciprocalArraySumTest.java:137)
-
-testParSimpleTwoMillion(co.edu.unal.paralela.ReciprocalArraySumTest)  Time elapsed: 0.201 sec  <<< FAILURE!
-junit.framework.AssertionFailedError: Se esperaba que la implementación de dos tareas en paralelo pudiera ejecutarse  1.500000x veces más rápido, pero solo alcanzo a mejorar la rapidez (speedup) 1.000000x veces
-	at junit.framework.Assert.fail(Assert.java:47)
-	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at co.edu.unal.paralela.ReciprocalArraySumTest.testParSimpleTwoMillion(ReciprocalArraySumTest.java:114)
+	at co.edu.unal.paralela.ReciprocalArraySumTest.testParManyTaskTwoHundredMillion(ReciprocalArraySumTest.java:171)
 
